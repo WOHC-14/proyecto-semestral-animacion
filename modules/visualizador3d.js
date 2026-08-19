@@ -1,8 +1,8 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.module.js";
-import { GLTFLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/GLTFLoader.js";
-import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
-import { DRACOLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/DRACOLoader.js";
-import { MeshoptDecoder } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/libs/meshopt_decoder.module.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/loaders/GLTFLoader.js";
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/controls/OrbitControls.js";
+import { DRACOLoader } from "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/loaders/DRACOLoader.js";
+import { MeshoptDecoder } from "https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/libs/meshopt_decoder.module.js";
 
 export class Visualizador3D {
     constructor() {
@@ -153,7 +153,7 @@ export class Visualizador3D {
         const loader = new GLTFLoader();
         
         const dracoLoader = new DRACOLoader();
-        dracoLoader.setDecoderPath('https://cdn.skypack.dev/three@0.132.2/examples/jsm/libs/draco/gltf/');
+        dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.132.2/examples/jsm/libs/draco/gltf/');
         loader.setDRACOLoader(dracoLoader);
         loader.setMeshoptDecoder(MeshoptDecoder);
 

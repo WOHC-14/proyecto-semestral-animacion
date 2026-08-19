@@ -30,6 +30,19 @@
     </noscript>
 
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- FIX: GLTFLoader.js, OrbitControls.js y DRACOLoader.js (three@0.132.2)
+         hacen internamente `import ... from 'three'` (specifier "pelado").
+         Sin este import map el navegador no puede resolverlo y lanza:
+         "Failed to resolve module specifier 'three'". Debe ir ANTES de
+         cualquier <script type="module">. -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.module.js"
+        }
+    }
+    </script>
     <script type="module" src="main.js" defer></script>
     
     <meta name="description" content="Descubre la colección más selecta de automóviles de lujo. Concesionario premium con las mejores marcas del mundo.">

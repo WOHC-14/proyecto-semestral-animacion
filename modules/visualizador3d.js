@@ -25,6 +25,7 @@ export class Visualizador3D {
         this.isIntersecting = false; 
         this.isPageVisible = true;
         this.isAnimatingCamera = false;
+        this.isAnimating = false; // evita agendar múltiples loops de RAF en paralelo
 
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, this.container.clientWidth / this.container.clientHeight, 0.1, 100);
@@ -220,6 +221,12 @@ export class Visualizador3D {
 
 
                 this.renderer.render(this.scene, this.camera);
+
+                // FIX: el/los intentos anteriores de animate() (constructor e
+                // IntersectionObserver) salieron por el guard porque isLoaded
+                // aún era false. Ahora que el modelo ya cargó, hay que
+                // reanudar el loop explícitamente o se queda congelado.
+                this.resumeLoopIfNeeded();
             },
             undefined,
             (error) => {
@@ -235,6 +242,9 @@ export class Visualizador3D {
 
         document.addEventListener("visibilitychange", () => {
             this.isPageVisible = document.visibilityState === 'visible';
+            // FIX: si vuelves a la pestaña después de que el modelo ya
+            // cargó, también hay que reanudar el loop.
+            this.resumeLoopIfNeeded();
         });
 
         const featureBtns = document.querySelectorAll(".feature-btn");
@@ -266,7 +276,7 @@ export class Visualizador3D {
 
             if (this.isIntersecting && !wasIntersecting) {
              
-                this.animate();
+                this.resumeLoopIfNeeded();
             }
             
           
@@ -286,12 +296,23 @@ export class Visualizador3D {
         this.renderer.setSize(width, height, false);
     }
 
+    // Reanuda el loop de RAF solo si no está corriendo ya y se cumplen
+    // las tres condiciones. Seguro de llamar desde cualquier evento
+    // (carga del modelo, cambio de pestaña, IntersectionObserver, etc).
+    resumeLoopIfNeeded() {
+        if (!this.isAnimating && this.isIntersecting && this.isPageVisible && this.isLoaded) {
+            this.animate();
+        }
+    }
+
     animate() {
         
         if (!this.isIntersecting || !this.isPageVisible || !this.isLoaded) {
+            this.isAnimating = false;
             return;
         }
 
+        this.isAnimating = true;
         requestAnimationFrame(this.animate.bind(this));
 
         if (this.isAnimatingCamera) {

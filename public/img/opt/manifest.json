@@ -1,0 +1,522 @@
+{
+ "img/aston-martin.webp": [
+  400
+ ],
+ "img/audi.webp": [],
+ "img/bentley.webp": [],
+ "img/bmw.webp": [],
+ "img/bugatti.webp": [],
+ "img/coleccion/amg-one-1.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/amg-one-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/amg-one-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/amg-one-4.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/aston-valhalla-1.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/aston-valhalla-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/aston-valhalla-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/aston-valhalla-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/audi-rs-etron-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/audi-rs-etron-2.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/audi-rs-etron-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/audi-rs-etron-4.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/bentley-gt-1.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/bentley-gt-2.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/bentley-gt-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bentley-gt-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bmw-xm-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bmw-xm-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bmw-xm-3.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/bmw-xm-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bugatti-tourbillon-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bugatti-tourbillon-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bugatti-tourbillon-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/bugatti-tourbillon-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/ferrari-sf90xx-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/ferrari-sf90xx-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/ferrari-sf90xx-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/ferrari-sf90xx-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/koenigsegg-gemera-1.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/koenigsegg-gemera-2.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/koenigsegg-gemera-3.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/koenigsegg-gemera-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lambo-evo-1.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/lambo-evo-2.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/lambo-evo-3.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/lambo-evo-4.webp": [
+  400,
+  800
+ ],
+ "img/coleccion/lambo-revuelto-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lambo-revuelto-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lambo-revuelto-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lambo-revuelto-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lotus-eletre-1.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/lotus-eletre-2.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/lotus-eletre-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/lotus-eletre-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/maserati-mc20-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/maserati-mc20-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/maserati-mc20-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/maserati-mc20-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/mclaren-artura-1.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/mclaren-artura-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/mclaren-artura-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/mclaren-artura-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/pagani-utopia-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/pagani-utopia-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/pagani-utopia-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/pagani-utopia-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-911-gt3-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-911-gt3-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-911-gt3-3.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/porsche-911-gt3-4.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/porsche-taycan-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-taycan-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-taycan-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/porsche-taycan-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rimac-nevera-1.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/rimac-nevera-2.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/rimac-nevera-3.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/rimac-nevera-4.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/coleccion/rr-phantom-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-phantom-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-phantom-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-phantom-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-spectre-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-spectre-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-spectre-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/rr-spectre-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/tesla-cybertruck-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/tesla-cybertruck-2.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/tesla-cybertruck-3.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/coleccion/tesla-cybertruck-4.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/descarga.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/ferrari.webp": [],
+ "img/koenigsegg.webp": [],
+ "img/lamborghini-verde.webp": [
+  400,
+  800
+ ],
+ "img/lamborghini.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/lotus.webp": [],
+ "img/maserati.webp": [],
+ "img/mclaren.webp": [
+  400
+ ],
+ "img/mercedes.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/pagani.webp": [],
+ "img/porsche-911-gt3-1.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/porsche.webp": [
+  400,
+  800,
+  1200,
+  1600
+ ],
+ "img/rimac.webp": [
+  400
+ ],
+ "img/rolls-royce.webp": [],
+ "img/rr-phantom.webp": [
+  400,
+  800,
+  1200
+ ],
+ "img/servicio-img-1.webp": [
+  400
+ ],
+ "img/servicio-img-2.webp": [
+  400
+ ],
+ "img/servicio-img-3.webp": [
+  400
+ ],
+ "img/servicio-img-4.webp": [
+  400
+ ],
+ "img/servicio-img-5.webp": [
+  400
+ ],
+ "img/tesla.webp": []
+}

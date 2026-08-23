@@ -1,5 +1,7 @@
 
 
+import { cargarManifiesto, pictureHTML } from './img-responsiva.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
     const grid = document.getElementById('gridInventario');
     const btnControl = document.getElementById('btnCargarMas');
@@ -7,11 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const filterBtns = document.querySelectorAll('.filtro-btn');
     const inputBuscador = document.getElementById('inputBuscador');
     const mensajeVacio = document.getElementById('mensajeSinResultados');
-    
+
 
     const ITEMS_INICIALES = 9;
     const ITEMS_LOTE = 6;
-    
+
 
     let estado = {
         filtro: 'all',
@@ -20,12 +22,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     let inventarioCompleto = [];
-    let inventarioProcesado = []; 
+    let inventarioProcesado = [];
 
 
     mostrarSkeletonCards(ITEMS_INICIALES);
 
     try {
+        // El manifiesto permite construir srcset exactos (sin 404s) para
+        // las variantes AVIF/WebP generadas.
+        await cargarManifiesto();
+
         const response = await fetch('autos.json');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
@@ -203,17 +209,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         article.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
 
         const loadingType = index < 6 ? 'eager' : 'lazy';
-        
+
         article.innerHTML = `
             <a href="auto-detalles.html?id=${auto.id}" class="card-img-wrapper js-guardar-estado">
-                <img src="${auto.imagenes[0]}" 
-                     alt="${auto.marca} ${auto.modelo}" 
-                     loading="${loadingType}"
-                     decoding="async"
-                     width="800"
-                     height="600"
-                     sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
-                     onload="this.classList.add('loaded')">
+                ${pictureHTML({
+                    ruta: auto.imagenes[0],
+                    alt: `${auto.marca} ${auto.modelo}`,
+                    sizes: '(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 33vw',
+                    eager: index < 6,
+                    extraAttrs: `onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')"`
+                })}
                 <div class="card-overlay-hover">
                     <span class="btn-ver-pieza">Ver Detalles</span>
                 </div>

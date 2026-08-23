@@ -1,0 +1,28 @@
+{
+  "name": "luxtop-motors",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "LuxTop Motors - Concesionario de lujo. Sitio estático optimizado con Vite.",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run optimize:images && vite build",
+    "build:fast": "vite build",
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.4.2",
+    "@gltf-transform/extensions": "^4.4.2",
+    "@gltf-transform/functions": "^4.4.2",
+    "draco3dgltf": "^1.5.7",
+    "meshoptimizer": "^1.2.0",
+    "sharp": "^0.34.2",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@fontsource/great-vibes": "^5.2.5",
+    "@fontsource/unbounded": "^5.2.5",
+    "@google/model-viewer": "^4.3.1"
+  }
+}

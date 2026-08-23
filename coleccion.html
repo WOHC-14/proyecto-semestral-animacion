@@ -4,35 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Nuestra Colección - LuxTop Motors</title>
     <meta name="description" content="Inventario exclusivo de vehículos de alta gama. Ferrari, Porsche, Rolls-Royce y más.">
     <link rel="canonical" href="https://luxtopmotors.com/coleccion.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600&display=swap"></noscript>
-    
     <script src="tema.js"></script>
-    
+
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="performance.css">
-    
-    <link rel="modulepreload" href="main.js">
-    <link rel="modulepreload" href="modules/controlador-coleccion.js">
 
-    <link rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          media="print" 
-          onload="this.media='all'">
-    
-    <script type="module" src="main.js" defer></script>
+
+    <script type="module" src="main.js"></script>
 </head>
 
 <body>
 
     <header class="seccion-header">
         <h1 class="logo" id="logo-ltm">
-            <a class="logo-link" href="/inicio.html" aria-label="Ir al inicio – LuxTop Motors">
+            <a class="logo-link" href="index.html" aria-label="Ir al inicio – LuxTop Motors">
                 <span class="brand">LuxTop</span>
                 <span class="sub">MOTORS</span>
             </a>
@@ -48,7 +39,7 @@
                     <h2>Menú</h2>
                     <button class="boton-cerrar-menu" id="botonCerrarMenu" aria-label="Cerrar menú">&times;</button>
                 </li>
-                <li><a href="inicio.html" id="inicio">Inicio</a></li>
+                <li><a href="index.html" id="inicio">Inicio</a></li>
                 <li><a href="coleccion.html" id="coleccion" aria-current="page">Colección</a></li>
                 <li><a href="servicios.html" id="servicios">Servicios</a></li>
                 <li><a href="sobrenosotros.html" id="sobrenosotros">Sobre Nosotros</a></li>
@@ -76,7 +67,7 @@
 
             <div class="controles-inventario">
                 <div class="buscador-wrapper">
-                    <i class="fas fa-search icono-busqueda"></i>
+                    <svg class="icono-svg icono-busqueda"><use href="#ic-search"/></svg>
                     <input type="text" id="inputBuscador" placeholder="Buscar modelo (ej. GT3, Huracán)..." aria-label="Buscar vehículo">
                 </div>
 
@@ -90,7 +81,7 @@
         </header>
 
         <div id="mensajeSinResultados" class="mensaje-vacio" style="display: none;">
-            <i class="fas fa-search"></i>
+            <svg class="icono-svg"><use href="#ic-search"/></svg>
             <h3>Sin coincidencias</h3>
             <p>No encontramos vehículos con ese criterio. Intenta otra búsqueda.</p>
         </div>
@@ -108,17 +99,17 @@
     <footer class="seccion-footer">
         <div class="footer-contenedor">
             <div class="footer-columna footer-brand">
-                <a class="logo-link" href="/inicio.html" aria-label="Ir al inicio – LuxTop Motors">
+                <a class="logo-link" href="index.html" aria-label="Ir al inicio – LuxTop Motors">
                     <span class="brand">LuxTop</span>
                     <span class="sub">MOTORS</span>
                 </a>
                 <p class="footer-descripcion">La excelencia no es un acto, sino un hábito. Encuentra tu próximo vehículo de lujo con nosotros.</p>
             </div>
-            
+
             <div class="footer-columna">
                 <h3 class="footer-titulo-columna">Navegación</h3>
                 <ul class="footer-lista-nav">
-                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="coleccion.html">Colección</a></li>
                     <li><a href="servicios.html">Servicios</a></li>
                     <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
@@ -128,23 +119,23 @@
             <div class="footer-columna">
                 <h3 class="footer-titulo-columna">Contacto</h3>
                 <ul class="footer-lista-contacto">
-                    <li><i class="fas fa-map-marker-alt"></i> <span>Av. Principal 123, Ciudad</span></li>
-                    <li><i class="fas fa-phone-alt"></i> <span>+507 392-6823</span></li>
-                    <li><i class="fas fa-envelope"></i> <span>info@luxtopmotors.com</span></li>
+                    <li><svg class="icono-svg"><use href="#ic-map-marker"/></svg> <span>Av. Principal 123, Ciudad</span></li>
+                    <li><svg class="icono-svg"><use href="#ic-phone"/></svg> <span>+507 392-6823</span></li>
+                    <li><svg class="icono-svg"><use href="#ic-envelope"/></svg> <span>info@luxtopmotors.com</span></li>
                 </ul>
             </div>
 
             <div class="footer-columna">
                 <h3 class="footer-titulo-columna">Redes Sociales</h3>
                 <div class="footer-social-iconos">
-                    <a href="#" aria-label="Visita nuestro Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Visita nuestro Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Visita nuestro YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Visita nuestro LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Visita nuestro Instagram"><svg class="icono-svg"><use href="#ic-instagram"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro Facebook"><svg class="icono-svg"><use href="#ic-facebook"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro YouTube"><svg class="icono-svg"><use href="#ic-youtube"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro LinkedIn"><svg class="icono-svg"><use href="#ic-linkedin"/></svg></a>
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-inferior">
             <p class="footer-copyright">&copy; 2025 LuxTop Motors. Todos los derechos reservados.</p>
         </div>

@@ -1,53 +1,50 @@
+import '@fontsource/unbounded/300.css';
+import '@fontsource/unbounded/400.css';
+import '@fontsource/unbounded/600.css';
+import '@fontsource/unbounded/800.css';
+import '@fontsource/great-vibes/400.css';
+
+import { injectIcons } from './modules/icons.js';
 import { ParallaxHero } from './modules/parallax.js';
 import { initModal } from './modules/modal.js';
 import { initMenu } from './modules/menu.js';
 import { initDarkMode } from './modules/darkmode.js';
-import { initCarrusel } from './modules/carrusel.js';
-import { initScrollOptimization } from './modules/scroll-optimization.js';
 import { initImageLoadHandler } from './modules/image-loader.js';
+import { initCarruselMarcas } from './modules/carrusel-pasos.js';
 
 console.log('🚀 Iniciando LuxTop Motors...');
 
-
-initScrollOptimization();
+injectIcons();
 initImageLoadHandler();
 initMenu();
 initDarkMode();
 initModal();
 
+if (document.querySelector('.marquee-marcas')) {
+    initCarruselMarcas();
+}
 
 if (document.querySelector('.seccion-hero')) {
     new ParallaxHero();
 }
 
-if (document.querySelector('.carrusel-marcas')) {
-    initCarrusel();
-}
-
-
-const experienciaSection = document.querySelector(".seccion-experiencia");
-if (experienciaSection) {
+// El visor 3D (<model-viewer>) se define solo cuando la sección está por entrar
+// en viewport: evita ~200 KB de JS en la carga inicial.
+const experienciaSection = document.querySelector('.seccion-experiencia');
+if (experienciaSection && !customElements.get('model-viewer')) {
     const observer = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
             observer.disconnect();
-            
-            const load3D = async () => {
-                try {
-                    const module = await import('./modules/visualizador3d.js');
-                    new module.Visualizador3D();
-                    console.log("✅ Visualizador 3D cargado bajo demanda");
-                } catch (e) {
-                    console.error("Error módulo 3D:", e);
-                }
-            };
-
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(() => load3D(), { timeout: 3000 });
-            } else {
-                setTimeout(load3D, 100);
-            }
+            Promise.all([
+                import('@google/model-viewer'),
+                import('./modules/visor-modelviewer.js')
+            ])
+                .then(([, { initVisorModelViewer }]) => {
+                    initVisorModelViewer();
+                    console.log('✅ Visor 3D cargado bajo demanda');
+                })
+                .catch((e) => console.error('Error módulo 3D:', e));
         }
-    }, { rootMargin: "200px" });
-    
+    }, { rootMargin: '300px' });
     observer.observe(experienciaSection);
 }

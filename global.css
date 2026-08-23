@@ -822,17 +822,29 @@ body.menu-abierto {
     width: 100%;
     padding: 20px 0;
     z-index: 1;
-    overflow: visible !important;
+    overflow: hidden;
 }
 
-.carrusel-marcas .swiper-wrapper {
-    align-items: center;
-}
-
-.carrusel-marcas .swiper-slide {
+/* Carrusel por pasos (reemplaza a Swiper): la pista contiene dos copias del
+   grupo de logos y se posiciona con transform controlado por JS
+   (modules/carrusel-pasos.js) para replicar el avance escalonado original. */
+.pista-marquee {
     display: flex;
+    width: max-content;
+    will-change: transform;
+}
+
+.carrusel-marcas.sin-js .pista-marquee {
+    flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+}
+
+.grupo-logos {
+    display: flex;
     align-items: center;
+    gap: 70px;
+    padding-right: 70px;
 }
 
 .logo-marca {
@@ -863,21 +875,34 @@ body.menu-abierto {
     filter: grayscale(30%) invert(1);
 }
 
-.dark-mode .swiper-slide.is-center .logo-marca img.logo-invertir {
+.logo-marca:hover,
+.logo-marca:hover img {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.dark-mode .logo-marca:hover img.logo-invertir {
     filter: grayscale(0%) invert(1);
 }
 
-.swiper-slide.is-center .logo-marca {
+/* Estados del carrusel por pasos (replican el énfasis de Swiper:
+   slide centrado ampliado y a color, adyacentes intermedios). */
+.logo-item.is-center .logo-marca {
     transform: scale(1.2);
     opacity: 1;
 }
 
-.swiper-slide.is-center .logo-marca img {
+.logo-item.is-center .logo-marca img {
     filter: grayscale(0%);
 }
 
-.swiper-slide.is-prev .logo-marca,
-.swiper-slide.is-next .logo-marca {
+.dark-mode .logo-item.is-center .logo-marca img.logo-invertir {
+    filter: grayscale(0%) invert(1);
+}
+
+.logo-item.is-prev .logo-marca,
+.logo-item.is-next .logo-marca {
     transform: scale(0.95);
     opacity: 0.85;
 }
@@ -1368,8 +1393,9 @@ body.menu-abierto {
     background-color: color-mix(in srgb, var(--lux-accent) 10%, transparent);
 }
 
-.tsp-icono-badge i {
-    font-size: 28px;
+.tsp-icono-badge .icono-svg {
+    width: 28px;
+    height: 28px;
     color: var(--lux-accent);
 }
 
@@ -1446,8 +1472,9 @@ body.menu-abierto {
     transition: all 0.3s ease;
 }
 
-.tsp-feature-check i {
-    font-size: 11px;
+.tsp-feature-check .icono-svg {
+    width: 11px;
+    height: 11px;
     color: var(--lux-accent);
 }
 
@@ -2128,8 +2155,10 @@ padding: 80px 20px;
 color: var(--lux-text-light);
 animation: fadeIn 0.5s ease;
 }
-.mensaje-vacio i {
+.mensaje-vacio .icono-svg {
 font-size: 3rem;
+width: 3rem;
+height: 3rem;
 color: var(--lux-accent);
 margin-bottom: 20px;
 opacity: 0.5;
@@ -3202,4 +3231,135 @@ justify-content: flex-start;
     display: none;
 }
 
+}
+/* ============================================================
+   ICONOS SVG (sprite inline, reemplaza Font Awesome)
+   ============================================================ */
+.icono-svg {
+    width: 1em;
+    height: 1em;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+    vertical-align: -0.125em;
+}
+
+.lista-nav .icono-svg,
+.footer-lista-contacto li:first-child .icono-svg,
+.footer-social-iconos .icono-svg {
+    width: 16px;
+    height: 16px;
+}
+
+.footer-lista-contacto .icono-svg {
+    color: var(--lux-accent);
+}
+
+.footer-social-iconos a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.footer-social-iconos .icono-svg {
+    width: 18px;
+    height: 18px;
+}
+
+.badge-tecnico {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge-tecnico .icono-svg {
+    color: var(--lux-accent);
+}
+
+.btn-link-servicio .icono-svg,
+.link-detalle .icono-svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.btn-link-servicio:hover .icono-svg,
+.link-detalle:hover .icono-svg {
+    transform: translateX(4px);
+}
+
+.caja-certificado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.caja-certificado .icono-svg {
+    width: 22px;
+    height: 22px;
+    color: var(--lux-accent);
+    flex-shrink: 0;
+}
+
+
+
+/* Hotspots del visor 3D */
+.icono-hotspot {
+    display: inline-flex;
+    align-items: center;
+}
+
+.icono-hotspot .icono-svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ============================================================
+   VISOR 3D — @google/model-viewer
+   (el posicionamiento de .modelo-3d-container lo definen las
+   reglas base: relative + 400px en móvil, absolute + 100% en desktop)
+   ============================================================ */
+.visor-modelo {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    --poster-color: transparent;
+    --progress-bar-color: var(--lux-accent);
+    --progress-mask: transparent;
+    background: radial-gradient(
+        circle at 50% 60%,
+        color-mix(in srgb, var(--lux-surface) 70%, transparent),
+        transparent 70%
+    );
+    border-radius: var(--radio-lg, 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .visor-modelo {
+        background: none;
+    }
+}
+
+/* ============================================================
+   RENDIMIENTO MÓVIL: backdrop-filter es muy caro en GPUs
+   integradas; se desactiva en pantallas pequeñas.
+   ============================================================ */
+@media (max-width: 900px) {
+    .superposicion-menu,
+    .modal-superposicion,
+    .contenedor-loader-3d,
+    .tsp-icono-badge {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .superposicion-menu.mostrar,
+    .modal-superposicion.mostrar {
+        background-color: rgba(8, 12, 18, 0.88);
+    }
 }

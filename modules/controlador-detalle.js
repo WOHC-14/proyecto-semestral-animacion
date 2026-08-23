@@ -1,15 +1,36 @@
 
-function cambiarImagen(elemento, nuevaSrc) {
+import { cargarManifiesto, pictureHTML } from './img-responsiva.js';
+
+const contenedorPrincipal = document.querySelector('.visor-principal');
+
+function montarImagenPrincipal(ruta, alt) {
+    if (!contenedorPrincipal) return;
+    contenedorPrincipal.innerHTML = pictureHTML({
+        ruta,
+        alt,
+        clase: 'visor-img-grande',
+        sizes: '(max-width: 900px) 100vw, 60vw',
+        eager: true,
+        extraAttrs: 'id="imgPrincipal" loading="eager"'
+    });
+}
+
+function cambiarImagen(elemento, nuevaSrc, alt = 'Vista del vehículo') {
     const imgPrincipal = document.getElementById('imgPrincipal');
     const todosThumbs = document.querySelectorAll('.thumb-btn');
-    
 
-    imgPrincipal.style.opacity = '0.6';
-    
-    setTimeout(() => {
-        imgPrincipal.src = nuevaSrc;
-        imgPrincipal.style.opacity = '1';
-    }, 200);
+
+    if (imgPrincipal) {
+        imgPrincipal.style.opacity = '0.6';
+        setTimeout(() => {
+            montarImagenPrincipal(nuevaSrc, alt);
+            const nuevaImg = document.getElementById('imgPrincipal');
+            if (nuevaImg) {
+                nuevaImg.style.opacity = '1';
+                nuevaImg.classList.add('loaded');
+            }
+        }, 200);
+    }
 
 
     todosThumbs.forEach(thumb => thumb.classList.remove('activo'));
@@ -20,7 +41,7 @@ function cambiarImagen(elemento, nuevaSrc) {
 window.cambiarImagen = cambiarImagen;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    
+
     const params = new URLSearchParams(window.location.search);
     const autoId = params.get('id');
     
@@ -34,6 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
+
+        await cargarManifiesto();
 
         const response = await fetch('./autos.json');
         
@@ -128,7 +151,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
        
 
-        const imgMain = document.getElementById('imgPrincipal');
         const containerThumbs = document.querySelector('.tira-miniaturas');
         
         if (containerThumbs) {
@@ -137,9 +159,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (auto.imagenes && auto.imagenes.length > 0) {
 
-            if (imgMain) {
-                imgMain.src = auto.imagenes[0];
-                imgMain.alt = `${auto.marca} Vista Principal`;
+            montarImagenPrincipal(auto.imagenes[0], `${auto.marca} Vista Principal`);
+            const imgPrincipal = document.getElementById('imgPrincipal');
+            if (imgPrincipal) {
+                imgPrincipal.addEventListener('load', () => imgPrincipal.classList.add('loaded'), { once: true });
             }
 
 
@@ -148,11 +171,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             auto.imagenes.forEach((src, index) => {
                 const btn = document.createElement('button');
                 btn.className = `thumb-btn ${index === 0 ? 'activo' : ''}`;
-                btn.onclick = function() { window.cambiarImagen(this, src); };
+                btn.onclick = function() { window.cambiarImagen(this, src, `${auto.marca} ${vistas[index] || `Vista ${index + 1}`}`); };
                 
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = vistas[index] || `Vista ${index + 1}`;
+                const span = document.createElement('span');
+                span.innerHTML = pictureHTML({
+                    ruta: src,
+                    alt: vistas[index] || `Vista ${index + 1}`,
+                    sizes: '(max-width: 600px) 22vw, 120px',
+                    eager: index === 0
+                });
+                const img = span.querySelector('img');
                 
                 btn.appendChild(img);
                 if (containerThumbs) {
@@ -160,11 +188,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
         } else {
- 
-            if (imgMain) {
-                imgMain.src = 'img/default-car.webp';
-                imgMain.alt = 'Imagen no disponible';
-            }
+            montarImagenPrincipal('img/porsche-911-gt3-1.webp', 'Imagen no disponible');
             console.warn("⚠️ Advertencia: No se encontraron imágenes para este vehículo");
         }
 

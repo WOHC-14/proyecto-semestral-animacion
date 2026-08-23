@@ -1,30 +1,19 @@
+/* Optimizaciones de rendimiento a nivel CSS.
+   content-visibility difiere el render de secciones fuera del viewport;
+   contain-intrinsic-size con "auto" recuerda la última altura renderizada
+   y evita saltos del scrollbar. */
+
 .seccion-marcas,
 .seccion-destacados,
 .seccion-experiencia,
 .seccion-servicios-premium {
     content-visibility: auto;
-    contain-intrinsic-size: 1px 600px;
+    contain-intrinsic-size: auto 600px;
 }
 
 .coleccion-grid {
     content-visibility: auto;
-    contain-intrinsic-size: 1px 1200px;
-    contain: layout paint style;
-}
-
-.imagen-hero.parallax-active,
-.modal-contenedor {
-    will-change: transform, opacity;
-}
-
-.vehiculo-card {
-    contain: content;
-    will-change: transform; 
-    transform: translateZ(0); 
-}
-
-.vehiculo-card:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    contain-intrinsic-size: auto 1200px;
 }
 
 .auto-principal,
@@ -33,33 +22,14 @@
     contain: layout style paint;
 }
 
+/* La imagen del hero participa del parallax: capa propia evita repaints. */
+.imagen-hero.parallax-active {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
     }
-}
-
-.vehiculo-card,
-.auto-principal {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.auto-imagen-wrapper {
-    background-color: var(--lux-surface);
-}
-
-.lazy-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.card-vehiculo {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
-
-.card-vehiculo.visible {
-    opacity: 1;
-    transform: translateY(0);
 }

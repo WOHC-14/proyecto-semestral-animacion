@@ -43,8 +43,11 @@ export class ParallaxHero {
         
         this.observer.observe(this.heroSection);
 
-        window.addEventListener("scroll", this.onScroll.bind(this), { passive: true });
-        window.addEventListener("resize", this.onResize.bind(this), { passive: true });
+        // Referencias bound estables para poder remover los listeners en destroy().
+        this._boundOnScroll = this.onScroll.bind(this);
+        this._boundOnResize = this.onResize.bind(this);
+        window.addEventListener("scroll", this._boundOnScroll, { passive: true });
+        window.addEventListener("resize", this._boundOnResize, { passive: true });
     }
 
     updateDimensions() {
@@ -103,8 +106,8 @@ export class ParallaxHero {
     destroy() {
         this.stopParallax();
         if (this.observer) this.observer.disconnect();
-        window.removeEventListener("scroll", this.onScroll.bind(this));
-        window.removeEventListener("resize", this.onResize.bind(this));
+        if (this._boundOnScroll) window.removeEventListener("scroll", this._boundOnScroll);
+        if (this._boundOnResize) window.removeEventListener("resize", this._boundOnResize);
         if (this.heroImage) {
             this.heroImage.style.willChange = 'auto';
             this.heroImage.style.transform = 'none';

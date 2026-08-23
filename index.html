@@ -1,11 +1,525 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=inicio.html">
-    <title>Redirigiendo...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxTop Motors - Concesionario de Lujo</title>
+
+    <script src="tema.js"></script>
+
+    <meta name="description" content="Descubre la colección más selecta de automóviles de lujo. Concesionario premium con las mejores marcas del mundo.">
+    <link rel="canonical" href="https://luxtopmotors.com/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="performance.css">
+
+    <!-- LCP: precarga del hero en AVIF con variantes responsive -->
+    <link rel="preload" as="image"
+          href="img/opt/descarga-1200.avif"
+          imagesrcset="img/opt/descarga-400.avif 400w, img/opt/descarga-800.avif 800w, img/opt/descarga-1200.avif 1200w"
+          imagesizes="(max-width: 900px) 100vw, 50vw"
+          fetchpriority="high">
+    <script type="module" src="main.js"></script>
 </head>
+
 <body>
-    <p>Redirigiendo a la página principal... <a href="inicio.html">Si no carga, haz clic aquí</a>.</p>
+
+    <header class="seccion-header">
+        <h1 class="logo" id="logo-ltm">
+            <a class="logo-link" href="index.html" aria-label="Ir al inicio – LuxTop Motors">
+                <span class="brand">LuxTop</span>
+                <span class="sub">MOTORS</span>
+            </a>
+        </h1>
+
+        <button class="boton-menu" id="botonMenu" aria-controls="navPrincipal" aria-expanded="false"
+            aria-label="Abrir menú">
+            <span aria-hidden="true">&#9776;</span>
+        </button>
+
+        <nav id="navPrincipal" role="navigation" aria-label="Menú principal">
+            <ul class="lista-nav" id="listaNav">
+                <li class="cabecera-sidebar-nav">
+                    <h2>Menú</h2>
+                    <button class="boton-cerrar-menu" id="botonCerrarMenu" aria-label="Cerrar menú">&times;</button>
+                </li>
+                <li><a href="index.html" id="inicio" aria-current="page">Inicio</a></li>
+                <li><a href="coleccion.html" id="coleccion">Colección</a></li>
+                <li><a href="servicios.html" id="servicios">Servicios</a></li>
+                <li><a href="sobrenosotros.html" id="sobrenosotros">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+
+        <div class="boton-header">
+            <button class="cta-header js-abrir-agendar" aria-haspopup="dialog" aria-controls="modalAgendar">Agendar
+                Cita</button>
+        </div>
+    </header>
+    <div class="superposicion-menu" id="superposicionMenu"></div>
+
+    <section class="seccion-hero">
+        <div class="hero-contenido">
+            <h1>Nada es demasiado para los mejores</h1>
+            <p>Descubre la colección más selecta de automóviles de lujo</p>
+            <div class="botones-hero">
+                <a class="boton-principal" href="coleccion.html" aria-label="Ver catálogo de autos">Explorar
+                    Colección</a>
+                <button class="boton-secundario js-abrir-agendar" aria-haspopup="dialog"
+                    aria-controls="modalAgendar">Agendar Cita</button>
+            </div>
+        </div>
+
+        <div class="hero-imagen-container">
+            <picture>
+                <source type="image/avif"
+                        srcset="img/opt/descarga-400.avif 400w, img/opt/descarga-800.avif 800w, img/opt/descarga-1200.avif 1200w"
+                        sizes="(max-width: 900px) 100vw, 50vw">
+                <source type="image/webp"
+                        srcset="img/opt/descarga-400.webp 400w, img/opt/descarga-800.webp 800w, img/opt/descarga-1200.webp 1200w"
+                        sizes="(max-width: 900px) 100vw, 50vw">
+                <img class="imagen-hero parallax-active"
+                     src="img/descarga.webp"
+                     alt="Automóvil de lujo en showroom"
+                     fetchpriority="high"
+                     width="1366"
+                     height="688"
+                     decoding="sync">
+            </picture>
+        </div>
+    </section>
+
+    <section class="seccion-marcas">
+        <h2 class="titulo-seccion">MARCAS PREMIUM</h2>
+        <div class="linea-dorada"></div>
+
+        <div class="contenedor-marcas">
+            <div class="aro-central">
+                <div class="anillo-rotante"></div>
+                <div class="circulo-interior"></div>
+            </div>
+
+            <div class="carrusel-marcas marquee-marcas sin-js">
+                <div class="pista-marquee">
+                    <div class="grupo-logos">
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/rolls-royce.webp" alt="Rolls-Royce" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/porsche.webp" alt="Porsche" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/ferrari.webp" alt="Ferrari" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/maserati.webp" alt="Maserati" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/aston-martin.webp" alt="Aston Martin" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/pagani.webp" alt="Pagani" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/mclaren.webp" alt="McLaren" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/bmw.webp" alt="BMW" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/bentley.webp" alt="Bentley" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/koenigsegg.webp" alt="Koenigsegg" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/bugatti.webp" alt="Bugatti" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/mercedes.webp" alt="Mercedes-Benz" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/audi.webp" alt="Audi" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/lamborghini.webp" alt="Lamborghini" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/lotus.webp" alt="Lotus" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/rimac.webp" alt="Rimac" width="110" height="110"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/tesla.webp" alt="Tesla" width="110" height="110"/></div></div>
+                    </div>
+                    <div class="grupo-logos" aria-hidden="true">
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/rolls-royce.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/porsche.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/ferrari.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/maserati.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/aston-martin.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/pagani.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/mclaren.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/bmw.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/bentley.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/koenigsegg.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/bugatti.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/mercedes.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/audi.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/lamborghini.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img src="img/lotus.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/rimac.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                        <div class="logo-item"><div class="logo-marca"><img class="logo-invertir" src="img/tesla.webp" alt="" width="110" height="110" loading="lazy"/></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-destacados">
+        <h2 class="titulo-seccion">COLECCIÓN EXCLUSIVA</h2>
+        <div class="linea-dorada"></div>
+        <p class="subtitulo-seccion">Los automóviles más codiciados del mundo</p>
+
+        <div class="contenedor-destacados">
+            <article class="auto-principal">
+                <div class="auto-imagen-wrapper">
+                    <picture>
+                        <source type="image/avif"
+                                srcset="img/opt/lamborghini-verde-400.avif 400w, img/opt/lamborghini-verde-800.avif 800w"
+                                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 46vw">
+                        <source type="image/webp"
+                                srcset="img/opt/lamborghini-verde-400.webp 400w, img/opt/lamborghini-verde-800.webp 800w"
+                                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 46vw">
+                        <img src="img/lamborghini-verde.webp"
+                             alt="Lamborghini Huracán Edición Limitada"
+                             class="auto-imagen"
+                             decoding="async"
+                             width="923"
+                             height="645"/>
+                    </picture>
+                    <div class="auto-overlay">
+                        <span class="badge-exclusivo">EDICIÓN LIMITADA</span>
+                        <div class="auto-info-hover">
+                            <p class="auto-specs">V10 • 640 HP • 0-100 en 2.9s</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="auto-detalles">
+                    <div class="auto-header">
+                        <span class="auto-marca">LAMBORGHINI</span>
+                        <span class="auto-disponibilidad">Solo 2 disponibles</span>
+                    </div>
+                    <h3 class="auto-modelo">Huracán EVO</h3>
+                    <p class="auto-descripcion">Potencia italiana en su máxima expresión</p>
+                    <div class="auto-footer">
+                        <span class="auto-precio">Desde $287,400</span>
+                        <a class="boton-ver-detalles" href="auto-detalles.html?id=lamborghini-huracan-evo"
+                            aria-label="Ver detalles Lamborghini Huracán EVO">Ver Detalles</a>
+                    </div>
+                </div>
+            </article>
+
+            <div class="autos-secundarios">
+                <article class="auto-secundario">
+                    <div class="auto-imagen-wrapper">
+                        <picture>
+                            <source type="image/avif"
+                                    srcset="img/opt/rr-phantom-400.avif 400w, img/opt/rr-phantom-800.avif 800w, img/opt/rr-phantom-1200.avif 1200w"
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 24vw">
+                            <source type="image/webp"
+                                    srcset="img/opt/rr-phantom-400.webp 400w, img/opt/rr-phantom-800.webp 800w, img/opt/rr-phantom-1200.webp 1200w"
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 24vw">
+                            <img src="img/rr-phantom.webp"
+                                alt="Rolls-Royce Phantom"
+                                class="auto-imagen"
+                                decoding="async"
+                                loading="lazy"
+                                width="800"
+                                height="600"/>
+                        </picture>
+                        <div class="auto-overlay">
+                            <span class="badge-nuevo">NUEVO</span>
+                            <div class="auto-info-hover">
+                                <p class="auto-specs">V12 • 563 HP • Lujo Supremo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auto-detalles">
+                        <div class="auto-header">
+                            <span class="auto-marca">ROLLS-ROYCE</span>
+                            <span class="auto-disponibilidad">3 disponibles</span>
+                        </div>
+                        <h3 class="auto-modelo">Phantom VIII</h3>
+                        <div class="auto-footer">
+                            <span class="auto-precio">Desde $460,000</span>
+                            <a class="boton-ver-detalles" href="auto-detalles.html?id=rolls-royce-phantom"
+                                aria-label="Ver detalles Rolls-Royce Phantom VIII">Ver Detalles</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="auto-secundario">
+                    <div class="auto-imagen-wrapper">
+                        <picture>
+                            <source type="image/avif"
+                                    srcset="img/opt/porsche-911-gt3-1-400.avif 400w, img/opt/porsche-911-gt3-1-800.avif 800w, img/opt/porsche-911-gt3-1-1200.avif 1200w"
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 24vw">
+                            <source type="image/webp"
+                                    srcset="img/opt/porsche-911-gt3-1-400.webp 400w, img/opt/porsche-911-gt3-1-800.webp 800w, img/opt/porsche-911-gt3-1-1200.webp 1200w"
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1100px) 92vw, 24vw">
+                            <img src="img/porsche-911-gt3-1.webp"
+                                alt="Porsche 911 GT3"
+                                class="auto-imagen"
+                                decoding="async"
+                                loading="lazy"
+                                width="1600"
+                                height="1200"/>
+                        </picture>
+                        <div class="auto-overlay">
+                            <span class="badge-nuevo">NUEVO</span>
+                            <div class="auto-info-hover">
+                                <p class="auto-specs">6 Cilindros • 502 HP • Listo para Pista</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auto-detalles">
+                        <div class="auto-header">
+                            <span class="auto-marca">PORSCHE</span>
+                            <span class="auto-disponibilidad">5 disponibles</span>
+                        </div>
+                        <h3 class="auto-modelo">911 GT3</h3>
+                        <div class="auto-footer">
+                            <span class="auto-precio">Desde $169,700</span>
+                            <a class="boton-ver-detalles" href="auto-detalles.html?id=porsche-911-gt3"
+                                aria-label="Ver detalles Porsche 911 GT3">Ver Detalles</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="contenedor-boton-coleccion">
+            <a class="boton-ver-coleccion" href="coleccion.html" aria-label="Ver catálogo de autos">Ver Colección
+                Completa</a>
+        </div>
+
+    </section>
+
+    <section class="seccion-experiencia">
+        <h2 class="titulo-seccion">EXPERIENCIA INTERACTIVA</h2>
+        <div class="linea-dorada"></div>
+        <p class="subtitulo-seccion">Explora cada detalle en 3D</p>
+
+        <div class="experiencia-wrapper">
+
+            <div class="modelo-3d-container">
+                <model-viewer id="visorModelo"
+                             class="visor-modelo"
+                             src="models/porsche_optimized.glb"
+                             alt="Modelo 3D interactivo del Porsche 911 GT3"
+                             camera-controls
+                             camera-orbit="90deg 76deg auto"
+                             interaction-prompt="none"
+                             environment-image="neutral"
+                             shadow-intensity="0.7"
+                             exposure="1.05"
+                             loading="lazy"
+                             reveal="auto"
+                             touch-action="pan-y">
+                </model-viewer>
+            </div>
+
+            <div class="info-modelo">
+                <h3 class="modelo-titulo">Porsche 911 GT3</h3>
+                <ul class="specs-list">
+                    <li><span class="spec-label">Motor:</span> 4.0L Boxer 6</li>
+                    <li><span class="spec-label">Potencia:</span> 502 hp</li>
+                    <li><span class="spec-label">0-100 km/h:</span> 3.2s</li>
+                    <li><span class="spec-label">Vel. Máxima:</span> 318 km/h</li>
+                </ul>
+                <p id="modelo-descripcion-dinamica" class="modelo-descripcion">
+                    Una obra maestra de la ingeniería. Gira el modelo o selecciona una característica para explorar.
+                </p>
+                <a href="auto-detalles.html?id=porsche-911-gt3" class="boton-ver-modelo" aria-label="Ver detalles completos del Porsche 911 GT3">
+                    Ver Detalles Completos
+                </a>
+            </div>
+
+            <div class="hotspots-container">
+                <button class="feature-btn active" data-target="vista-general"
+                    data-descripcion="Una obra maestra de la ingeniería. Gira el modelo o selecciona una característica para explorar."
+                    aria-label="Vista general">
+                    <span class="icono-hotspot"><svg class="icono-svg"><use href="#ic-car-side"/></svg></span> <span
+                        class="texto-hotspot">General</span>
+                </button>
+                <button class="feature-btn" data-target="interior"
+                    data-descripcion="La cabina combina Alcantara, fibra de carbono y un diseño enfocado en la pista."
+                    aria-label="Ver interior">
+                    <span class="icono-hotspot"><svg class="icono-svg"><use href="#ic-gauge"/></svg></span> <span
+                        class="texto-hotspot">Interior</span>
+                </button>
+                <button class="feature-btn" data-target="aerodinamica"
+                    data-descripcion="El alerón trasero 'cuello de cisne' y el difusor masivo generan una carga aerodinámica de nivel de competición."
+                    aria-label="Ver aerodinámica">
+                    <span class="icono-hotspot"><svg class="icono-svg"><use href="#ic-wind"/></svg></span> <span
+                        class="texto-hotspot">Aero</span>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="seccion-servicios-premium">
+        <h2 class="titulo-seccion">NUESTROS SERVICIOS</h2>
+        <div class="linea-dorada"></div>
+        <p class="subtitulo-seccion">Excelencia en cada detalle</p>
+
+        <div class="contenedor-servicios-premium">
+
+            <article class="tarjeta-servicio-premium">
+                <div class="tsp-imagen-wrapper">
+                    <img src="img/servicio-img-3.webp"
+                         alt="Taller de mantenimiento Ferrari"
+                         class="tsp-imagen"
+                         loading="lazy"
+                         decoding="async"
+                         width="500"
+                         height="750">
+
+                    <div class="tsp-icono-badge">
+                        <svg class="icono-svg"><use href="#ic-wrench"/></svg>
+                    </div>
+                </div>
+
+                <div class="tsp-contenido">
+                    <div class="tsp-subtitulo">SERVICIO CERTIFICADO</div>
+                    <h3 class="tsp-titulo">Mantenimiento Integral</h3>
+                    <p class="tsp-descripcion">Laboratorio técnico con protocolos de fábrica para mantener intacta la garantía y valor.</p>
+
+                    <ul class="tsp-features-lista">
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Diagnóstico computarizado</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Repuestos de origen (OEM)</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Logística en grúa cerrada</span>
+                        </li>
+                    </ul>
+
+                    <button class="boton-modal-servicio js-abrir-agendar" aria-haspopup="dialog" aria-controls="modalAgendar">
+                        Solicitar Información
+                    </button>
+                </div>
+            </article>
+
+            <article class="tarjeta-servicio-premium">
+                <div class="tsp-imagen-wrapper">
+                    <img src="img/servicio-img-2.webp"
+                         alt="Restauración estética Porsche"
+                         class="tsp-imagen"
+                         loading="lazy"
+                         decoding="async"
+                         width="500"
+                         height="375">
+                    <div class="tsp-icono-badge">
+                        <svg class="icono-svg"><use href="#ic-gem"/></svg>
+                    </div>
+                </div>
+                <div class="tsp-contenido">
+                    <div class="tsp-subtitulo">CORRECCIÓN DE PINTURA</div>
+                    <h3 class="tsp-titulo">Restauración Estética</h3>
+                    <p class="tsp-descripcion">Perfección visual a nivel molecular. Eliminación de micro-arañazos y acabados espejo.</p>
+                    <ul class="tsp-features-lista">
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Pulido multi-etapa</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Hidratación de pieles</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Limpieza criogénica motor</span>
+                        </li>
+                    </ul>
+                    <button class="boton-modal-servicio js-abrir-agendar" aria-haspopup="dialog" aria-controls="modalAgendar">
+                        Solicitar Información
+                    </button>
+                </div>
+            </article>
+
+            <article class="tarjeta-servicio-premium">
+                <div class="tsp-imagen-wrapper">
+                    <img src="img/servicio-img-1.webp"
+                         alt="Aplicación de PPF"
+                         class="tsp-imagen"
+                         loading="lazy"
+                         decoding="async"
+                         width="500"
+                         height="325">
+                    <div class="tsp-icono-badge">
+                        <svg class="icono-svg"><use href="#ic-shield"/></svg>
+                    </div>
+                </div>
+                <div class="tsp-contenido">
+                    <div class="tsp-subtitulo">PELÍCULA Y CERÁMICA</div>
+                    <h3 class="tsp-titulo">Blindaje & Protección</h3>
+                    <p class="tsp-descripcion">Escudo invisible contra el uso diario mediante tecnología regenerativa y cerámica 9H.
+                    </p>
+                    <ul class="tsp-features-lista">
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>PPF auto-regenerable</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>Recubrimiento cerámico 9H</span>
+                        </li>
+                        <li class="tsp-feature-item">
+                            <div class="tsp-feature-check"><svg class="icono-svg"><use href="#ic-check"/></svg></div>
+                            <span>10 años de garantía</span>
+                        </li>
+                    </ul>
+                    <button class="boton-modal-servicio js-abrir-agendar" aria-haspopup="dialog" aria-controls="modalAgendar">
+                        Solicitar Información
+                    </button>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="contenedor-boton-coleccion">
+            <a class="boton-ver-coleccion" href="servicios.html" aria-label="Ver todos los servicios">Ver Servicios Completos</a>
+        </div>
+
+    </section>
+
+    <footer class="seccion-footer">
+        <div class="footer-contenedor">
+            <div class="footer-columna footer-brand">
+                <a class="logo-link" href="index.html" aria-label="Ir al inicio – LuxTop Motors">
+                    <span class="brand">LuxTop</span>
+                    <span class="sub">MOTORS</span>
+                </a>
+                <p class="footer-descripcion">La excelencia no es un acto, sino un hábito. Encuentra tu próximo vehículo de lujo con nosotros.</p>
+            </div>
+
+            <div class="footer-columna">
+                <h3 class="footer-titulo-columna">Navegación</h3>
+                <ul class="footer-lista-nav">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="coleccion.html">Colección</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="sobrenosotros.html">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h3 class="footer-titulo-columna">Contacto</h3>
+                <ul class="footer-lista-contacto">
+                    <li><svg class="icono-svg"><use href="#ic-map-marker"/></svg> <span>Av. Principal 123, Ciudad</span></li>
+                    <li><svg class="icono-svg"><use href="#ic-phone"/></svg> <span>+507 392-6823</span></li>
+                    <li><svg class="icono-svg"><use href="#ic-envelope"/></svg> <span>info@luxtopmotors.com</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-columna">
+                <h3 class="footer-titulo-columna">Redes Sociales</h3>
+                <div class="footer-social-iconos">
+                    <a href="#" aria-label="Visita nuestro Instagram"><svg class="icono-svg"><use href="#ic-instagram"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro Facebook"><svg class="icono-svg"><use href="#ic-facebook"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro YouTube"><svg class="icono-svg"><use href="#ic-youtube"/></svg></a>
+                    <a href="#" aria-label="Visita nuestro LinkedIn"><svg class="icono-svg"><use href="#ic-linkedin"/></svg></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-inferior">
+            <p class="footer-copyright">&copy; 2025 LuxTop Motors. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <button id="botonModoOscuro" class="boton-modo-oscuro" aria-label="Activar modo oscuro">
+        <span class="icono-sol" aria-hidden="true">&#x2600;</span>
+        <span class="icono-luna" aria-hidden="true">&#x263D;</span>
+    </button>
+
 </body>
+
 </html>
